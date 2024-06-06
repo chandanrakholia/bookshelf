@@ -5,9 +5,6 @@ This is a simple React application for searching books using the Open Library AP
 ## Table of Contents
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Running the Application](#running-the-application)
-- [Project Structure](#project-structure)
-- [License](#license)
 
 ## Prerequisites
 

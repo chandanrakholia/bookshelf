@@ -52,7 +52,7 @@ const SearchPage = () => {
     let updatedBookshelf = [...bookshelf, book];
     setBookshelf(updatedBookshelf);
     localStorage.setItem('bookshelf', JSON.stringify(updatedBookshelf));
-    toast.success("Book added to Bookshelf");
+    toast.success(`${book.title} added to Bookshelf`);
   };
 
   const isBookInBookshelf = (book) => {
@@ -70,34 +70,39 @@ const SearchPage = () => {
   );
 
   return (
-    <div className="search-container">
-      <div className='wrapper'>
-        <div className="search-page">
-          <h2>Search by book name:</h2>
-          <input
-            type="text"
-            value={query}
-            onChange={handleInputChange}
-            placeholder="Search for books"
-            className="search-input"
-          />
-        </div>
-        <div className="button-container">
-          <Link to="/bookshelf">
-            <Button variant="primary">My Bookshelf</Button>
-          </Link>
-        </div>
+    <>
+      <div style={{"textAlign": "center"}}>
+        <a href="https://github.com/chandanrakholia/bookshelf" target="_blank">Visit the repository</a>
       </div>
-        <div style={{textAlign:"center"}}>
+      <div className="search-container">
+        <div className='wrapper'>
+          <div className="search-page">
+            <h2>Search by book name:</h2>
+            <input
+              type="text"
+              value={query}
+              onChange={handleInputChange}
+              placeholder="Search for books"
+              className="search-input"
+            />
+          </div>
+          <div className="button-container">
+            <Link to="/bookshelf">
+              <Button variant="primary">My Bookshelf</Button>
+            </Link>
+          </div>
+        </div>
+        <div style={{ textAlign: "center" }}>
           {loading && <p>Loading...</p>}
           {error && <p>{error}</p>}
         </div>
-      <div className="book-list">
-        {books.map((book, index) => (
-          <BookCard key={index} book={book} />
-        ))}
+        <div className="book-list">
+          {books.map((book, index) => (
+            <BookCard key={index} book={book} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
